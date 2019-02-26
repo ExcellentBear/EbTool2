@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/back.png</file>
+        <file>icons/erase.png</file>
+        <file>icons/histline.png</file>
+        <file>icons/rect.png</file>
+        <file>icons/tess.png</file>
+        <file>icons/vertline.png</file>
+        <file>icons/clearall.png</file>
+        <file>icons/clearpart.png</file>
+        <file>icons/file.png</file>
+    </qresource>
+</RCC>
