@@ -4,14 +4,14 @@ ExampleModel::ExampleModel(vector<int> layers)
 {
     _laber_number = layers.back();
     model = cv::ml::ANN_MLP::create();
-    cv::Mat layerSize = cv::Mat_<int>(1,(int)layers.size());
+    cv::Mat layerSize = cv::Mat_<int>(1, static_cast<int>(layers.size()));
     for(size_t i=0;i<layers.size();i++){
-            layerSize.at<int>(0,i) = layers.at(i);
+            layerSize.at<int>(0, static_cast<int>(i)) = layers.at(i);
         }
     model->setLayerSizes(layerSize);
-    model->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER+cv::TermCriteria::EPS,300,FLT_EPSILON));
+    model->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER+cv::TermCriteria::EPS,300, FLT_EPSILON));
     model->setActivationFunction(cv::ml::ANN_MLP::SIGMOID_SYM);
-    model->setTrainMethod(cv::ml::ANN_MLP::BACKPROP,0.001f);
+    model->setTrainMethod(cv::ml::ANN_MLP::BACKPROP, 0.001);
 }
 
 void ExampleModel::LoadModel(std::string fileName, std::string labelfName)

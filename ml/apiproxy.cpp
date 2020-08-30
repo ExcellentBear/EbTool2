@@ -2,7 +2,7 @@
 
 ApiProxy::ApiProxy()
 {
-    if(LoadConfigure::getConfMap().value("mlapi")=="default"){
+    if(LoadConfigure::getConfMap().value("mlapi", "default")=="default"){
         _api = new DirectApi;
     }else{
         _api = new SockApi;

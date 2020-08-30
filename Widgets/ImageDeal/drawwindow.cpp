@@ -7,6 +7,13 @@ DrawWindow::DrawWindow(QWidget *parent) :
     ui(new Ui::DrawWindow)
 {
     ui->setupUi(this);
+
+    setStyleSheet("QLabel{color:blue}"
+                  "QLineEdit{color:green; border-radius: 5px 5px; }"
+                  "QPushButton{color:green; border: none}"
+                  "QToolBar::item{backgound-color: rgba(255, 255, 255, 0)}"
+                  );
+
     _ml_api = new ApiProxy();
 
     _thread = new QThread(0);

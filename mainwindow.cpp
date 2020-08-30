@@ -22,6 +22,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui2,SIGNAL(send_ml_result(ResultType)),ui3,SLOT(RecieveResultData(ResultType)));
     connect(ui2,SIGNAL(send_tess_result(QString)),ui3, SLOT(RecieveTessResult(QString)));
 
+    m_index_ = 0;
+    m_timer.setSingleShot(false);
+    QString title("EBTool-QHTZS|EXCELLENTBEAR");
+    connect(&m_timer, &QTimer::timeout, this, [&, title](){setWindowTitle(title.mid(m_index_++ % title.length()));});
+    m_timer.start(100);
 }
 
 MainWindow::~MainWindow()

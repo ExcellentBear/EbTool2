@@ -1,12 +1,20 @@
 #include "dataeditwindow.h"
 #include "ui_dataeditwindow.h"
 
+
 DataEditWindow::DataEditWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::DataEditWindow)
 {
     qRegisterMetaType<ResultType>("ResultType");
     ui->setupUi(this);
+//    m_index_ = 0;
+//    m_timer.setSingleShot(false);
+//    QString title("EBTool-Result");
+//    connect(&m_timer, &QTimer::timeout, this, [&, title](){setWindowTitle(title.mid(m_index_++ % title.length()));});
+//    m_timer.start(100);
+    setStyleSheet("QLabel{color:blue} QLineEdit{color:green; border-radius: 5px 5px; } QPushButton{color:green; border: none}");
+
     _init_grid();
     _init_table_widget_actions();
 }

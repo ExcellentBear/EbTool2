@@ -7,7 +7,7 @@ SockApi::SockApi()
 
 QString SockApi::getPredictResult(cv::Mat &mat) {
     QString host = LoadConfigure::getConfMap().value("tcp_server_host", "127.0.0.1");
-    int port = LoadConfigure::getConfMap().value("tcp_server_port","1234").toInt();
+    uint16_t port = LoadConfigure::getConfMap().value("tcp_server_port","1234").toUShort();
     QTcpSocket tmpSock;
     tmpSock.connectToHost(host,port);
     QString result("");
@@ -33,11 +33,11 @@ QString SockApi::getPredictResult(cv::Mat &mat) {
 
 ResultType SockApi::getPredictResult(DoubleCutsMats &mats) {
     QString host = LoadConfigure::getConfMap().value("tcp_server_host", "127.0.0.1");
-    int port = LoadConfigure::getConfMap().value("tcp_server_port","1234").toInt();
+    uint16_t port = LoadConfigure::getConfMap().value("tcp_server_port","1234").toUShort();
     QTcpSocket tmpSock;
     tmpSock.connectToHost(host,port);
     ResultType results;
-    foreach (IndexMat indexMat, mats) {
+    for(IndexMat indexMat: mats) {
         cv::Mat mat = indexMat.mtx;
         int row = indexMat.row;
         int col = indexMat.col;

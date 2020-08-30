@@ -20,8 +20,8 @@ class LoadConfigure
 public:
     LoadConfigure();
     ~LoadConfigure();
-    LoadConfigure(const LoadConfigure& instance) = delete;
-    LoadConfigure& operator = (const LoadConfigure& instance) = delete;
+    LoadConfigure(const LoadConfigure& instance) = delete ;
+    LoadConfigure& operator = (const LoadConfigure& instance) = delete ;
     static ShareConfInstance getConfInstance();
     static ConfMap& getConfMap();
 

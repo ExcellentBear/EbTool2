@@ -39,6 +39,9 @@ private:
     QAction* _action;
     QMutex _mutex;
 
+    QTimer  m_timer;
+    uint8_t  m_index_;
+
 private slots:
     void _init_draw_win();
 };

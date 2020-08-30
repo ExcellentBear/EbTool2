@@ -5,7 +5,7 @@ DirectApi::DirectApi()
     int otp = LoadConfigure::getConfMap().value("mlapi_labels").toInt();
     vector<int> layers = {32*32,215,36,otp};
     _model = new ExampleModel(layers);
-    _model->LoadModel("model.xml","label.txt");
+    _model->LoadModel("model.xml", "label.txt");
     //MLApi::DefaultMlModel->PrintLabels();
 }
 
@@ -23,7 +23,7 @@ QString DirectApi::getPredictResult(cv::Mat &mat)
 ResultType DirectApi::getPredictResult(DoubleCutsMats &mats)
 {
     ResultType result;
-    foreach (IndexMat indexMat, mats) {
+    for(IndexMat indexMat: mats) {
         QString res = getPredictResult(indexMat.mtx);
         ResultModel model = ResultModel(indexMat.row,indexMat.col,res);
         result.push_back(model);

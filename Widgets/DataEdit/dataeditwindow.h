@@ -14,6 +14,7 @@
 #include <QRegExp>
 #include <QTextStream>
 #include <QMetaType>
+#include <QTimer>
 
 namespace Ui {
 class DataEditWindow;
@@ -64,6 +65,8 @@ private slots:
 
 private:
     Ui::DataEditWindow *ui;
+//    QTimer  m_timer;
+//    uint8_t  m_index_;
 };
 
 #endif // DATAEDITWINDOW_H
